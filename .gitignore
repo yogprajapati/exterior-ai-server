@@ -1,0 +1,36 @@
+# virtual environments
+.venv/
+venv/
+env/
+
+# Python bytecode and packaging
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# local environment: holds secrets such as HF_TOKEN (keep .env.example)
+.env
+.env.*
+!.env.example
+
+# tooling caches and reports
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# logs and scratch files
+*.log
+tmp/
+
+# editor and OS files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+.DS_Store
+Thumbs.db

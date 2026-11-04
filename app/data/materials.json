@@ -1,0 +1,698 @@
+[
+ {
+  "name": "Exterior Emulsion",
+  "category": "paint",
+  "applies_to": [
+   "wall",
+   "pillar",
+   "parapet",
+   "balcony",
+   "roof_edge"
+  ],
+  "render": {
+   "mode": "paint",
+   "relief": 0.6
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "coverage",
+   "unit": "L",
+   "wastage_pct": 5,
+   "unit_coverage_sqft": 50
+  },
+  "rates": {
+   "material_rate": 450,
+   "labor_rate": 14,
+   "prep_rate": 7
+  },
+  "info": "Weatherproof exterior emulsion, primer plus 2 coats (about 50 sq ft per litre on rough plaster). Repaint every 5-7 years.",
+  "variants": [
+   {
+    "id": "paint-white",
+    "name": "Pure White",
+    "render": {
+     "color": "#f2f0ea"
+    }
+   },
+   {
+    "id": "paint-ivory",
+    "name": "Ivory",
+    "render": {
+     "color": "#efe6cf"
+    }
+   },
+   {
+    "id": "paint-cream",
+    "name": "Warm Cream",
+    "render": {
+     "color": "#e6d5b0"
+    }
+   },
+   {
+    "id": "paint-sand",
+    "name": "Sand Beige",
+    "render": {
+     "color": "#d8c3a0"
+    }
+   },
+   {
+    "id": "paint-grey",
+    "name": "Light Grey",
+    "render": {
+     "color": "#bfc2c4"
+    }
+   },
+   {
+    "id": "paint-charcoal",
+    "name": "Charcoal",
+    "render": {
+     "color": "#4b4f54"
+    }
+   },
+   {
+    "id": "paint-sage",
+    "name": "Sage Green",
+    "render": {
+     "color": "#8fa88a"
+    }
+   },
+   {
+    "id": "paint-sky",
+    "name": "Sky Blue",
+    "render": {
+     "color": "#9fc0d6"
+    }
+   },
+   {
+    "id": "paint-terracotta",
+    "name": "Terracotta",
+    "render": {
+     "color": "#c8704f"
+    }
+   },
+   {
+    "id": "paint-brick",
+    "name": "Brick Red",
+    "render": {
+     "color": "#a4492f"
+    }
+   },
+   {
+    "id": "paint-mustard",
+    "name": "Mustard",
+    "render": {
+     "color": "#d6a935"
+    }
+   }
+  ],
+  "look": "{name} exterior emulsion paint, smooth matte finish"
+ },
+ {
+  "name": "Textured Finish",
+  "category": "texture_finish",
+  "applies_to": [
+   "wall",
+   "pillar",
+   "parapet",
+   "balcony",
+   "roof_edge"
+  ],
+  "render": {
+   "mode": "texture",
+   "relief": 0.7
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "direct",
+   "unit": "sq ft",
+   "wastage_pct": 8
+  },
+  "rates": {
+   "material_rate": 40,
+   "labor_rate": 25,
+   "prep_rate": 8
+  },
+  "info": "Sprayed or rolled texture coat that hides wall imperfections. Re-coat every 7-10 years.",
+  "variants": [
+   {
+    "id": "texture-plaster",
+    "name": "Plaster",
+    "render": {
+     "texture": "PaintedPlaster017.jpg",
+     "tile_ft": 4.0
+    }
+   },
+   {
+    "id": "texture-concrete",
+    "name": "Concrete Look",
+    "render": {
+     "texture": "Concrete034.jpg",
+     "tile_ft": 5.0,
+     "relief": 0.6
+    },
+    "rates": {
+     "material_rate": 50
+    }
+   }
+  ],
+  "look": "{name} textured exterior wall finish"
+ },
+ {
+  "name": "Stone Cladding",
+  "category": "stone_cladding",
+  "applies_to": [
+   "wall",
+   "pillar",
+   "parapet",
+   "balcony"
+  ],
+  "render": {
+   "mode": "texture",
+   "relief": 0.8,
+   "tile_ft": 6.5
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "direct",
+   "unit": "sq ft",
+   "wastage_pct": 12
+  },
+  "rates": {
+   "material_rate": 160,
+   "labor_rate": 70,
+   "prep_rate": 25
+  },
+  "info": "Stone fixed with adhesive and clamps. Very durable; clean and re-seal every few years. Heavy: check the wall can carry it.",
+  "variants": [
+   {
+    "id": "stone-grey",
+    "name": "Grey Slate Look",
+    "render": {
+     "texture": "Bricks108A.jpg"
+    }
+   },
+   {
+    "id": "stone-sandstone",
+    "name": "Sandstone",
+    "render": {
+     "texture": "Bricks106A.jpg"
+    },
+    "rates": {
+     "material_rate": 220
+    }
+   },
+   {
+    "id": "stone-travertine",
+    "name": "Travertine",
+    "render": {
+     "texture": "Travertine009.jpg"
+    },
+    "rates": {
+     "material_rate": 380,
+     "labor_rate": 80
+    }
+   }
+  ],
+  "look": "{name} natural stone wall cladding"
+ },
+ {
+  "name": "Elevation Tiles",
+  "category": "tiles",
+  "applies_to": [
+   "wall",
+   "pillar",
+   "parapet",
+   "balcony"
+  ],
+  "render": {
+   "mode": "texture",
+   "relief": 0.7,
+   "tile_ft": 6.5
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "pieces",
+   "unit": "nos",
+   "wastage_pct": 10,
+   "unit_coverage_sqft": 2
+  },
+  "rates": {
+   "material_rate": 170,
+   "labor_rate": 45,
+   "prep_rate": 18
+  },
+  "info": "Exterior wall tiles (2 sq ft each) fixed with adhesive and grouted. Low maintenance; check for hollow tiles every few years.",
+  "variants": [
+   {
+    "id": "tiles-beige",
+    "name": "Beige",
+    "render": {
+     "texture": "Tiles143.jpg"
+    }
+   },
+   {
+    "id": "tiles-white",
+    "name": "White",
+    "render": {
+     "texture": "Tiles141.jpg"
+    },
+    "rates": {
+     "material_rate": 150
+    }
+   }
+  ],
+  "look": "{name} ceramic elevation tiles"
+ },
+ {
+  "name": "Wood-look Cladding",
+  "category": "panels",
+  "applies_to": [
+   "wall",
+   "pillar",
+   "parapet",
+   "balcony"
+  ],
+  "render": {
+   "mode": "texture",
+   "relief": 0.7,
+   "tile_ft": 6.5
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "direct",
+   "unit": "sq ft",
+   "wastage_pct": 8
+  },
+  "rates": {
+   "material_rate": 190,
+   "labor_rate": 60,
+   "prep_rate": 25
+  },
+  "info": "Weather-resistant wood-plastic or HPL planks on a fixing frame. Needs occasional cleaning; avoid direct rain splash at the base.",
+  "variants": [
+   {
+    "id": "panel-wood",
+    "name": "Natural Planks",
+    "render": {
+     "texture": "Planks037A.jpg"
+    }
+   }
+  ],
+  "look": "{name} wood-look wall cladding panels"
+ },
+ {
+  "name": "Door",
+  "category": "doors",
+  "applies_to": [
+   "door"
+  ],
+  "render": {
+   "mode": "texture",
+   "relief": 0.5,
+   "tile_ft": 3.0
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "direct",
+   "unit": "sq ft",
+   "wastage_pct": 0
+  },
+  "rates": {
+   "material_rate": 1400,
+   "labor_rate": 150,
+   "prep_rate": 40
+  },
+  "info": "Priced per sq ft of door, shutter and frame together. Finish and polish are in the preparation rate.",
+  "variants": [
+   {
+    "id": "door-teak",
+    "name": "Teak Wood",
+    "render": {
+     "texture": "Wood066.jpg"
+    }
+   },
+   {
+    "id": "door-walnut",
+    "name": "Dark Walnut Wood",
+    "render": {
+     "texture": "Wood051.jpg"
+    },
+    "rates": {
+     "material_rate": 1250
+    }
+   },
+   {
+    "id": "door-oak",
+    "name": "Oak Veneer Flush",
+    "render": {
+     "texture": "Wood094.jpg"
+    },
+    "rates": {
+     "material_rate": 900,
+     "labor_rate": 100
+    }
+   },
+   {
+    "id": "door-flush-white",
+    "name": "Painted Flush, White",
+    "render": {
+     "mode": "paint",
+     "color": "#f1efe8"
+    },
+    "rates": {
+     "material_rate": 550,
+     "labor_rate": 100
+    }
+   },
+   {
+    "id": "door-flush-grey",
+    "name": "Painted Flush, Grey",
+    "render": {
+     "mode": "paint",
+     "color": "#8d9196"
+    },
+    "rates": {
+     "material_rate": 550,
+     "labor_rate": 100
+    }
+   },
+   {
+    "id": "door-steel-black",
+    "name": "Steel, Black Powder Coat",
+    "render": {
+     "mode": "paint",
+     "color": "#26282b"
+    },
+    "rates": {
+     "material_rate": 700,
+     "labor_rate": 100
+    }
+   }
+  ],
+  "look": "{name} door"
+ },
+ {
+  "name": "MS Gate",
+  "category": "gates",
+  "applies_to": [
+   "gate"
+  ],
+  "render": {
+   "mode": "tint",
+   "strength": 0.9
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "direct",
+   "unit": "sq ft",
+   "wastage_pct": 0
+  },
+  "rates": {
+   "material_rate": 450,
+   "labor_rate": 60,
+   "prep_rate": 25
+  },
+  "info": "Mild-steel gate with primer and powder coat or enamel; priced per sq ft of gate. Repaint every 4-5 years near the coast.",
+  "variants": [
+   {
+    "id": "gate-black",
+    "name": "Black",
+    "render": {
+     "color": "#2a2c2f"
+    }
+   },
+   {
+    "id": "gate-brown",
+    "name": "Brown",
+    "render": {
+     "color": "#5b3a29"
+    }
+   },
+   {
+    "id": "gate-grey",
+    "name": "Grey",
+    "render": {
+     "color": "#7a7f85"
+    }
+   },
+   {
+    "id": "gate-white",
+    "name": "White",
+    "render": {
+     "color": "#eeeeea"
+    }
+   },
+   {
+    "id": "gate-wrought",
+    "name": "Wrought Iron, Black",
+    "render": {
+     "color": "#1f2124"
+    },
+    "rates": {
+     "material_rate": 800,
+     "labor_rate": 80
+    }
+   }
+  ],
+  "look": "{name} metal gate"
+ },
+ {
+  "name": "Railing",
+  "category": "railings",
+  "applies_to": [
+   "railing",
+   "balcony"
+  ],
+  "render": {
+   "mode": "tint"
+  },
+  "quantity": {
+   "measure": "length",
+   "rule": "direct",
+   "unit": "rft",
+   "wastage_pct": 3
+  },
+  "rates": {
+   "material_rate": 950,
+   "labor_rate": 250,
+   "prep_rate": 50
+  },
+  "info": "Priced per running foot, supplied and fixed. Measured along the longest edge of each railing (or balcony).",
+  "variants": [
+   {
+    "id": "rail-ss",
+    "name": "Stainless Steel 304",
+    "render": {
+     "color": "#c9ccd0",
+     "strength": 0.9
+    }
+   },
+   {
+    "id": "rail-alu-black",
+    "name": "Aluminium, Black",
+    "render": {
+     "color": "#2b2d30",
+     "strength": 0.9
+    },
+    "rates": {
+     "material_rate": 700,
+     "labor_rate": 200
+    }
+   },
+   {
+    "id": "rail-alu-bronze",
+    "name": "Aluminium, Bronze",
+    "render": {
+     "color": "#6b4a2f",
+     "strength": 0.9
+    },
+    "rates": {
+     "material_rate": 750,
+     "labor_rate": 200
+    }
+   },
+   {
+    "id": "rail-ms-black",
+    "name": "Mild Steel, Black Powder Coat",
+    "render": {
+     "color": "#25272a",
+     "strength": 0.9
+    },
+    "rates": {
+     "material_rate": 450,
+     "labor_rate": 150
+    }
+   },
+   {
+    "id": "rail-glass",
+    "name": "Toughened Glass, Clear",
+    "render": {
+     "color": "#bfe3ea",
+     "strength": 0.4
+    },
+    "rates": {
+     "material_rate": 1700,
+     "labor_rate": 400,
+     "prep_rate": 200
+    }
+   }
+  ],
+  "look": "{name} balcony railing"
+ },
+ {
+  "name": "Window Frame",
+  "category": "window_frames",
+  "applies_to": [
+   "window"
+  ],
+  "render": {
+   "mode": "tint",
+   "strength": 0.95
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "direct",
+   "unit": "sq ft",
+   "wastage_pct": 0
+  },
+  "rates": {
+   "material_rate": 380,
+   "labor_rate": 70,
+   "prep_rate": 12
+  },
+  "look": "{name} window frames",
+  "info": "Frame and sash with hardware, priced per sq ft of window opening; sealant and fixing in the preparation rate.",
+  "variants": [
+   {
+    "id": "frame-upvc-white",
+    "name": "uPVC, White",
+    "render": {
+     "color": "#f2f2ee"
+    }
+   },
+   {
+    "id": "frame-alu-black",
+    "name": "Aluminium, Black",
+    "render": {
+     "color": "#2a2c2f"
+    },
+    "rates": {
+     "material_rate": 620
+    }
+   },
+   {
+    "id": "frame-alu-bronze",
+    "name": "Aluminium, Bronze",
+    "render": {
+     "color": "#5e432c"
+    },
+    "rates": {
+     "material_rate": 690
+    }
+   },
+   {
+    "id": "frame-alu-grey",
+    "name": "Aluminium, Anthracite Grey",
+    "render": {
+     "color": "#4a4f55"
+    },
+    "rates": {
+     "material_rate": 650
+    }
+   },
+   {
+    "id": "frame-wood-teak",
+    "name": "Teak Wood",
+    "render": {
+     "color": "#7a4a26"
+    },
+    "rates": {
+     "material_rate": 900,
+     "labor_rate": 120
+    }
+   }
+  ]
+ },
+ {
+  "name": "Window Glass",
+  "category": "glass",
+  "applies_to": [
+   "window"
+  ],
+  "render": {
+   "mode": "glass"
+  },
+  "quantity": {
+   "measure": "area",
+   "rule": "direct",
+   "unit": "sq ft",
+   "wastage_pct": 3,
+   "share": 0.85
+  },
+  "rates": {
+   "material_rate": 90,
+   "labor_rate": 25,
+   "prep_rate": 5
+  },
+  "look": "{name} window glass",
+  "info": "Toughened glass priced per sq ft of glazed area (85% of the window opening).",
+  "variants": [
+   {
+    "id": "glass-clear",
+    "name": "Clear 6 mm",
+    "render": {
+     "color": "#f4f8fb",
+     "strength": 0.0
+    }
+   },
+   {
+    "id": "glass-blue",
+    "name": "Blue Tint",
+    "render": {
+     "color": "#7fa6c4",
+     "strength": 0.55,
+     "gloss": 0.25
+    },
+    "rates": {
+     "material_rate": 140
+    }
+   },
+   {
+    "id": "glass-bronze",
+    "name": "Bronze Tint",
+    "render": {
+     "color": "#9b7b5a",
+     "strength": 0.55,
+     "gloss": 0.25
+    },
+    "rates": {
+     "material_rate": 150
+    }
+   },
+   {
+    "id": "glass-reflective",
+    "name": "Reflective Grey",
+    "render": {
+     "color": "#6f8796",
+     "strength": 0.7,
+     "gloss": 0.6
+    },
+    "rates": {
+     "material_rate": 210
+    }
+   },
+   {
+    "id": "glass-frosted",
+    "name": "Frosted Privacy",
+    "render": {
+     "color": "#e3eaee",
+     "strength": 0.8,
+     "gloss": 0.0
+    },
+    "rates": {
+     "material_rate": 130
+    }
+   }
+  ]
+ }
+]
