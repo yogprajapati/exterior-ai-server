@@ -8,7 +8,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from app.api import catalog, detection, health, outputs, projects
+from app.api import catalog, detection, health, masks, outputs, projects
 from app.core.config import settings
 from app.core.database import create_client, init_indexes
 from app.core.logging import configure_logging
@@ -22,13 +22,15 @@ logger = logging.getLogger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     client = create_client()
-    app.state.db = client[settings.mongodb_db]
-    await init_indexes(app.state.db)
-    preload_textures()
-    logger.info("Started: database '%s' ready, textures preloaded", settings.mongodb_db)
-    yield
-    await client.close()
-    logger.info("Stopped")
+    try:
+        app.state.db = client[settings.mongodb_db]
+        await init_indexes(app.state.db)
+        preload_textures()
+        logger.info("Started: database '%s' ready, textures preloaded", settings.mongodb_db)
+        yield
+    finally:
+        await client.close()
+        logger.info("Stopped")
 
 
 app = FastAPI(title="Exterior Renovation Assistant", lifespan=lifespan)
@@ -54,6 +56,6 @@ async def log_requests(request: Request, call_next):
     return response
 
 
-for module in (health, catalog, projects, detection, outputs):
+for module in (health, catalog, projects, detection, masks, outputs):
     app.include_router(module.router)
 app.mount("/textures", StaticFiles(directory=TEXTURE_DIR), name="textures")

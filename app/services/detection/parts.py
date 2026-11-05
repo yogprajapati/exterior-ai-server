@@ -68,10 +68,10 @@ def _wall(context: np.ndarray, others: np.ndarray, min_pixels: float) -> np.ndar
     return np.isin(labels, keep)
 
 
-def find_parts(key: str, rgb: np.ndarray, phrase: str, region_type: RegionType, model: Sam3 = sam3) -> list[DetectedPart]:
-    """Every instance of a phrase the user typed, as parts of the type they chose (for what the fixed phrases missed)."""
+def find_parts(key: str, rgb: np.ndarray, phrase: str, region_type: RegionType, existing: list[np.ndarray], model: Sam3 = sam3) -> list[DetectedPart]:
     masks = model.find(model.encode(key, rgb), phrase)
-    return _new_parts(masks, region_type, {region_type: np.zeros(rgb.shape[:2], bool)}, MIN_PART_SHARE * rgb.shape[0] * rgb.shape[1])
+    taken = {region_type: _union(existing, rgb.shape[:2])}
+    return _new_parts(masks, region_type, taken, MIN_PART_SHARE * rgb.shape[0] * rgb.shape[1])
 
 
 def detect(key: str, rgb: np.ndarray, on_progress: Callable[[float, str], None] = lambda *_: None, model: Sam3 = sam3) -> Detection:

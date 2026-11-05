@@ -1,11 +1,10 @@
 import logging
 from collections.abc import Callable
-from dataclasses import dataclass
-from typing import Literal
 
 import numpy as np
 
 from app.schemas.project import Design
+from app.schemas.render import RenderResult
 from app.services import render
 from app.services.catalog import get_catalog
 from app.services.geometry import PlaneModel
@@ -20,13 +19,6 @@ SEEDS = (0, 1)  # a second try with another seed when the first edit fails the c
 MIN_GEOMETRY = 0.5  # share of the building's edges outside the changed parts that must still line up: below it, the edit could not be registered
 MAX_ADDED = 0.08  # share of edges on repainted surfaces that may be new (made-up windows or panels)
 MIN_CHANGE = 3.0  # mean pixel change inside the redesigned regions below which the edit did nothing
-
-
-@dataclass(frozen=True)
-class RenderResult:
-    jpeg: bytes
-    method: Literal["ai", "preview"]
-    note: str | None = None
 
 
 def _preview(image: np.ndarray, regions: list[RegionMask], planes: dict[str, PlaneModel], design: Design, note: str) -> RenderResult:

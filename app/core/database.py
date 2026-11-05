@@ -1,9 +1,11 @@
 from pymongo import AsyncMongoClient
 from pymongo.asynchronous.database import AsyncDatabase
+from pymongo.errors import ServerSelectionTimeoutError
 
 from app.core.config import settings
 
-PROJECT_TTL_SECONDS = 30 * 86_400
+TTL_SECONDS = 30 * 86_400
+TTL_FIELDS = {"projects": "updated_at", "renders": "created_at", "detections": "created_at"}
 
 
 def create_client() -> AsyncMongoClient:
@@ -11,5 +13,8 @@ def create_client() -> AsyncMongoClient:
 
 
 async def init_indexes(db: AsyncDatabase) -> None:
-    # TTL keeps the free-tier database from filling with abandoned anonymous projects
-    await db.projects.create_index("updated_at", expireAfterSeconds=PROJECT_TTL_SECONDS)
+    try:
+        for collection, field in TTL_FIELDS.items():
+            await db[collection].create_index(field, expireAfterSeconds=TTL_SECONDS)
+    except ServerSelectionTimeoutError:
+        raise RuntimeError("Cannot reach MongoDB. Start it, or set MONGODB_URI in server/.env.") from None

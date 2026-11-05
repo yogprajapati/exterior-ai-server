@@ -3,7 +3,9 @@ from typing import Annotated
 
 from fastapi import Depends, HTTPException, Request
 
+from app.repositories.detections import DetectionRepository
 from app.repositories.projects import ProjectRecord, ProjectRepository
+from app.repositories.renders import RenderRepository
 from app.schemas.project import Design
 
 logger = logging.getLogger(__name__)
@@ -13,7 +15,17 @@ def get_repo(request: Request) -> ProjectRepository:
     return ProjectRepository(request.app.state.db)
 
 
+def get_detections(request: Request) -> DetectionRepository:
+    return DetectionRepository(request.app.state.db)
+
+
+def get_renders(request: Request) -> RenderRepository:
+    return RenderRepository(request.app.state.db)
+
+
 RepoDep = Annotated[ProjectRepository, Depends(get_repo)]
+DetectionRepoDep = Annotated[DetectionRepository, Depends(get_detections)]
+RenderRepoDep = Annotated[RenderRepository, Depends(get_renders)]
 
 
 async def get_project(project_id: str, repo: RepoDep) -> ProjectRecord:
@@ -35,4 +47,4 @@ def get_design(design_id: str, project: ProjectDep) -> tuple[ProjectRecord, Desi
     return project, design
 
 
-DesignDep = Annotated[tuple[ProjectRecord, Design], Depends(get_design)]  # the project and the design named in the URL
+DesignDep = Annotated[tuple[ProjectRecord, Design], Depends(get_design)]
