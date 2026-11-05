@@ -109,10 +109,10 @@ def build_report(project_id: str, design: Design, original_jpeg: bytes, render_j
     story.append(_table(rows, [PAGE_WIDTH * w for w in (0.24, 0.12, 0.17, 0.12, 0.12, 0.12, 0.11)]))
 
     story.append(Paragraph("Cost by category", styles["h2"]))
-    rows = [["Category", "Material", "Labour", "Total"]]
+    rows = [["Category", "Material + preparation", "Labour", "Total"]]
     rows += [[c.category.value.replace("_", " ").title(), format_inr(c.material_cost), format_inr(c.labor_cost), format_inr(c.total_cost)] for c in estimate.categories]
     rows.append(["Grand total", format_inr(estimate.material_total), format_inr(estimate.labor_total), format_inr(estimate.grand_total)])
-    story.append(_table(rows, [PAGE_WIDTH * w for w in (0.4, 0.2, 0.2, 0.2)], bold_last=True))
+    story.append(_table(rows, [PAGE_WIDTH * w for w in (0.34, 0.26, 0.2, 0.2)], bold_last=True))
     story.append(Spacer(1, 4))
     story.append(Paragraph(f"Likely range given measurement uncertainty: {format_inr(estimate.grand_total_low)} – {format_inr(estimate.grand_total_high)}", styles["body"]))
 
